@@ -1,15 +1,16 @@
 "use strict";
 function checkForSpam(message) {
-  const netThief = "spam";
-  const netGood = "sale";
-  if (message.toLowerCase().includes(netThief)) {
-    return `true`;
-  } else if (message.toLowerCase().includes(netGood)) {
-    return `true`;
+  const lowercasedMessage = message.toLowerCase();
+  if (
+    lowercasedMessage.includes("spam") ||
+    lowercasedMessage.includes("sale")
+  ) {
+    return true;
   } else {
-    return `falce`;
+    return false;
   }
 }
+
 console.log(checkForSpam("Latest technology news")); // false
 console.log(checkForSpam("JavaScript weekly newsletter")); // false
 console.log(checkForSpam("Get best sale offers now!")); // true
